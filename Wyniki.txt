@@ -5,6 +5,9 @@ Zaimportuj dane uruchamiając skrypt task2.cypher. Napisz następujące zapytani
 	RETURN sp
 
 2.	Znajdź mające najmniej etapów trasy którymi można dostać się z Darjeeling na Sandakphu i które mogą być wykorzystywane zimą 
+	MATCH (src:town { name: "Darjeeling" }), (dest:peak { name: "Sandakphu" }), sp = ShortestPath((src)-[*]-(dest)) WHERE ALL(route IN relationships(sp) WHERE route.winter = "true")
+	RETURN sp
+
 3.	Uszereguj trasy którymi można dostać się z Darjeeling na Sandakphu według dystansu 
 4.	Znajdź wszystkie miejsca do których można dotrzeć przy pomocy roweru (twowheeler) z Darjeeling latem
 Część 2 – Połączenia lotnicze
