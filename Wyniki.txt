@@ -14,6 +14,12 @@ Zaimportuj dane uruchamiając skrypt task2.cypher. Napisz następujące zapytani
 	ORDER BY distance ASC
 
 4.	Znajdź wszystkie miejsca do których można dotrzeć przy pomocy roweru (twowheeler) z Darjeeling latem
+	MATCH result = (src:town { name: "Darjeeling" })-[:twowheeler*]->(dest)
+	WHERE ALL (route IN relationships(result) WHERE route.summer = "true")
+	RETURN src
+	
+	//Brak wyników?
+	
 Część 2 – Połączenia lotnicze
 Zaimportuj dane uruchamiając skrypt task3.cypher. Napisz następujące zapytania:
 5.	Uszereguj porty lotnicze według ilości rozpoczynających się w nich lotów
