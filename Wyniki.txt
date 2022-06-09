@@ -9,6 +9,10 @@ Zaimportuj dane uruchamiając skrypt task2.cypher. Napisz następujące zapytani
 	RETURN sp
 
 3.	Uszereguj trasy którymi można dostać się z Darjeeling na Sandakphu według dystansu 
+	MATCH result = (src:town { name: "Darjeeling" })-[r*..4]-(dest:peak { name: "Sandakphu" })
+	RETURN result, REDUCE (dist = 0, route IN r | dist + route.distance) AS distance
+	ORDER BY distance ASC
+
 4.	Znajdź wszystkie miejsca do których można dotrzeć przy pomocy roweru (twowheeler) z Darjeeling latem
 Część 2 – Połączenia lotnicze
 Zaimportuj dane uruchamiając skrypt task3.cypher. Napisz następujące zapytania:
